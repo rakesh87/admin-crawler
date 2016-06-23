@@ -1,0 +1,13 @@
+<p id="notice" class="text-justify">
+	<%= notice %>
+</p>
+
+<p class="text-justify">
+  <strong>Url:</strong>
+</p>
+<p class="text-justify">
+  <%= link_to @crawler.url, @crawler.url, target: "_blank" %>
+</p>
+
+<%= link_to 'Edit', edit_user_crawler_url(@user, @crawler) %> |
+<%= link_to 'Back', user_crawlers_url(@user) %>

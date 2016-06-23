@@ -1,0 +1,37 @@
+<p class="text-lg-left">
+	<% if current_user %>
+		Welcome <%= current_user.email %>
+	<% else %>
+		Welcome
+	<% end %>
+</p>
+
+<p class="text-lg-left">your recent activities...</p>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Url</th>
+        <th>Crawled At</th>
+        <th>resource Count</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    	<% @activities.each do | activity | %>
+	      <tr>
+	        <td>
+	          <%= activity.source_name %>
+	        </td>
+	        <td>
+	          <%= activity.created_at %>
+	        </td>
+	        <td>
+	          <%= activity.fields_data_number %>
+	        </td>
+	      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

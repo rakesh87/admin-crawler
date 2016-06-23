@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Crawlers</h1>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Url</th>
+        <th colspan="4"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @crawlers.each.with_index(1) do |crawler, index| %>
+        <tr>
+          <td><%= index %></td>
+          <td><%= link_to truncate(crawler.url, length: 80), crawler.url, target: "_blank" %></td>
+          <td><%= link_to 'Crawl', user_crawler_crawl_url(@user, crawler), remote: true %></td>
+          <td><%= link_to 'Show', user_crawler_url(@user, crawler) %></td>
+          <td><%= link_to 'Edit', edit_user_crawler_url(@user, crawler) %></td>
+          <td><%= link_to 'Destroy', user_crawler_url(@user, crawler), method: :delete, data: { confirm: 'Are you sure! You want to delete it. This will delete all information related to current resource.' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+<%= link_to 'New Crawler', new_user_crawler_url(@user) %>

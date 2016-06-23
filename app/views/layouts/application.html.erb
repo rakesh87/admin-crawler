@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="free admin dashboard">
+    <meta name="author" content="rakesh">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Admin Dashboard</title>
+
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-dark navbar-fixed-top bg-inverse">
+      <button type="button" class="navbar-toggler hidden-sm-up" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Dashboard", root_url, class: "navbar-brand" %>
+      <div id="navbar">
+        <nav class="nav navbar-nav pull-xs-left">
+          <%= link_to "Dashboard", root_url, class: "nav-item nav-link" %>
+          <% if current_user %>
+            <%= link_to "Log Out", destroy_user_session_url, class: "nav-item nav-link" %>
+            <%= link_to "Urls ", user_crawlers_url(current_user), class: "nav-item nav-link" %>
+          <% else %>
+            <%= link_to "Log In", user_session_url, class: "nav-item nav-link" %>
+            <%= link_to "Sign Up", new_user_registration_url, class: "nav-item nav-link" %>
+         	<% end %>
+          
+          <%= link_to "Help", '/help', class: "nav-item nav-link" %>
+        </nav>
+        <form class="pull-xs-right">
+          <input type="text" class="form-control" placeholder="Search...">
+        </form>
+      </div>
+    </nav>
+    <div class="container-fluid container-top-margin">
+	    <div class="row">
+	    	<div class="col-sm-3 col-md-2 sidebar side-bar-results">
+
+	    	</div>
+	    	<div class="col-sm-9 col-md-10 main">
+	    		<%= yield %>
+	    	</div>
+	    </div>
+
+	    </div>
+
+  </body>
+
+</html>
+

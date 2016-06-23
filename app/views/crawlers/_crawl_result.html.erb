@@ -1,0 +1,29 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>
+          source
+        </td>
+        <td>
+          <%= truncate(result.source_name, length: 10) %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          data no.
+        </td>
+        <td>
+          <%= result.fields_data_number %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
