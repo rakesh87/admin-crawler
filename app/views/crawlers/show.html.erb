@@ -10,4 +10,5 @@
 </p>
 
 <%= link_to 'Edit', edit_user_crawler_url(@user, @crawler) %> |
-<%= link_to 'Back', user_crawlers_url(@user) %>
+<%= link_to 'Back', user_crawlers_url(@user) %> |
+<%= link_to 'Crawl', user_crawler_crawl_url(@user, @crawler), remote: true %>

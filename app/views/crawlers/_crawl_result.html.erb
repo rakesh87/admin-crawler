@@ -8,6 +8,18 @@
     </thead>
 
     <tbody>
+      <% @result_json.each do | key, value | %>
+        <tr>
+          <td>
+            <%= key %>
+          </td>
+          <td>
+            <%= value %>
+          </td>
+        </tr>
+      <% end %>
+
+      <% if false %>
       <tr>
         <td>
           source
@@ -24,6 +36,8 @@
           <%= result.fields_data_number %>
         </td>
       </tr>
+      <% end %>
+      
     </tbody>
   </table>
 </div>

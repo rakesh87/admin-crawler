@@ -9,7 +9,7 @@ class Crawler < ApplicationRecord
 	def register_activity!(data)
 		activities.create(
 			source_name: data[:vendor],
-			fields_data_number: 8
+			fields_data_number: data.count
 		)
 	end
 

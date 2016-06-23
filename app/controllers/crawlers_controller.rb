@@ -53,7 +53,8 @@ class CrawlersController < ApplicationController
   def crawl
     @crawler = @user.crawlers.find(params[:crawler_id])
     service = SnapdealService.new(product_url: @crawler.url)
-    @result = @crawler.register_activity!(service.to_json)
+    @result_json = service.to_json
+    @result = @crawler.register_activity!(@result_json)
     respond_to do |format|
       format.js { }
     end
